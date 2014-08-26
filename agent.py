@@ -6,6 +6,8 @@ import sys
 import random
 import os
 import threading
+import socket
+
 
 fo = open("/home/gayan/Resources/Stratos/payload/launch-params", "r+")
 str = fo.read(1000);
@@ -112,6 +114,14 @@ def publishInstanceStartedEvent():
     print('disconnected')
 
 
+def checkPortsActive():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    result = sock.connect_ex(('127.0.0.1',80))
+    if result == 0:
+       print "Port is open"
+    else:
+       print "Port is not open"
+
 t1 = threading.Thread(target=runningSuspendScript, args=[])
 
 t1.start()
@@ -125,6 +135,8 @@ t3 = threading.Thread(target=listeningTopology, args=[])
 t3.start()
 
 onInstanceStartedEvent()
+
+checkPortsActive()
 
 publishInstanceStartedEvent()
 
