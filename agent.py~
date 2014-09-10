@@ -10,7 +10,7 @@ import socket
 import json
 import extensionhandler
 import util
-import subprocess
+import git
 
 
 util.validateRequiredSystemProperties()

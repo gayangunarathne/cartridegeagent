@@ -16,11 +16,11 @@ def onArtifactUpdatedEvent(extenstionpath,scriptname):
     print Process.communicate() #now you should see your output
    # os.system()
 
-def onInstanceCleanupMemberEvent(extenstionpath,scriptname):
+def onInstanceCleanupMemberEvent(extenstionpath,scriptname)
     Process=Popen([os.path.join(extenstionpath,scriptname),str('php')],shell=True,stdin=PIPE,stderr=PIPE)
     print Process.communicate()
 
-def onInstanceCleanupClusterEvent(extenstionpath,scriptname):
+def onInstanceCleanupClusterEvent(extenstionpath,scriptname)
     Process=Popen([os.path.join(extenstionpath,scriptname),str('php')],shell=True,stdin=PIPE,stderr=PIPE)
     print Process.communicate()
 
